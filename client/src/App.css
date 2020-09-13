@@ -1,0 +1,280 @@
+.App {
+  text-align: center;
+  position: relative;
+  background-color: black;
+  min-height: 100vh;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+h4{
+  color: white;
+  text-align: left;
+}
+.sidebar {
+  float: left;
+}
+.turn-help-text {
+  font-size:8px;
+}
+.sidebar ul {
+  margin-left: 20px;
+}
+li {
+  list-style: none;
+}
+p {
+  color: white;
+  text-transform: capitalize;
+}
+.sidebar li {
+  padding: 10px 40px;
+  margin-bottom: 17px;
+  margin-left: 10px;
+  text-transform: capitalize;
+  text-align: center;
+  color: white;
+  background-color: #108b9e;
+  box-shadow: 0px 0px 16px 3px #eeeeee
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+.create-room-class, .join-room-class {
+  display: inline-block;
+  position: relative;
+  width:50%;
+  height: 100vh;
+  background-color: #872487;
+  text-align: right;
+  animation: left-movement 1s ease-in;
+}
+.join-room-class {
+  text-align: left;
+  background-color: #8822d4;
+  animation: right-movement 1s ease-in;
+}
+.create-button, .join-button{
+  position: relative;
+  border: 2px solid yellow;
+  border-radius: 2px;
+  background-color: yellow;
+  padding: 10px 30px;
+  margin:2px;
+  cursor: pointer;
+  top: 45%;
+  color: #872487;
+}
+.top-45 {
+  position: relative;
+  top: 45%;
+}
+.red-input,.green-input {
+  border-radius: 2px;
+  padding: 10px 20px;
+  border: 1px solid #e45d5d;
+  outline: none;
+  margin: 5px;
+}
+.green-input {
+  padding: 5px 20px;
+  border:1px solid #4a874a;
+}
+.red-back-button, .green-back-button {
+  border: 1px solid #e45d5d;
+  padding: 5px 20px;
+  margin: 5px;
+  background-color: #ffbb3e;
+  cursor: pointer;
+}
+.green-back-button {
+  border: 1px solid #4a874a;
+  background-color: #5555f2;
+}
+.indigo {
+  text-align: center;
+  background-color: #5555f2;
+  text-align: left;
+}
+.green {
+  text-align: center;
+  background-color: #4a874a;
+  vertical-align: top;
+}
+.orange {
+  background-color: #ffbb3e;
+  vertical-align: top;
+  text-align: left;
+}
+.red {
+  background-color: #e45d5d;
+}
+li.orange-bg {
+  background-color: #ffbb3e;
+}
+.list-of-players {
+  color: white;
+  background-color: #108b9e;
+}
+.start-button {
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  padding: 10px 60px;
+  background-color: #5555f2;
+  cursor: pointer;
+  font-weight:bold;
+  color: white;
+  border:1px solid #5555f2
+}
+.inline-block {
+  display: inline-block;
+}
+.trum-card-position {
+  position: absolute;
+  right: 100px;
+  color: white;
+}
+.game-section {
+  width: 70%;
+  margin: 0 auto 50px;
+  padding-top: 50px;
+}
+.p-10 {
+  padding: 10px;
+}
+button {
+  cursor: pointer;
+}
+.rules {
+  margin-top: 10%;
+}
+.rules li {
+  margin: 10px 0;
+  line-height: 20px;
+}
+.cards-section {
+  width: 75%;
+  padding-top: 0px;
+}
+.inline-block button{
+  display: block;
+  height: 30px;
+  color: none;
+  background-color: inherit;
+  border: none;
+}
+button img, img{
+  width: 70px;
+}
+.middle-align {
+  vertical-align: middle
+}
+.place-bet-box {
+  display: inline-block;
+  margin-left: 50px;
+}
+.lobby-cards {
+  display: inline-block;
+  width: 100px;
+  padding: 10px;
+}
+.lobby {
+  width: 70%;
+  text-align: left;
+  margin: 50px 10px;
+  border: 2px dashed #e45d5d;
+}
+table, td, th {
+    border: 1px solid #108b9e;
+    border-collapse: collapse;
+    padding: 5px;
+}
+th {
+  background-color: #108b9e;
+  color: white;
+}
+td {
+  background-color: #ffbb3e;
+}
+.scores {
+  width: 61%;
+  margin: 0 auto;
+  padding-top: 50px;
+}
+.winner {
+  text-align: center;
+  background-color: yellow;
+  position: relative;
+  min-height: 100vh;
+  animation: top-movement 2s ease;
+}
+.winner-text {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+.flower {
+  height: 5px;
+  width: 5px;
+  background-color: red;
+  padding: 5px;
+  position: relative;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 5%;
+  animation: top-bottom 5s infinite ease-in;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes  left-movement {
+  from {
+    left: -500px;
+  }
+  to {
+    left:0px;
+  }
+}
+@keyframes  right-movement {
+  from {
+    right: -500px;
+  }
+  to {
+    right: 0px;
+  }
+}
+@keyframes top-movement {
+  from {
+    top: -500px;
+  }
+  to {
+    top: 0px;
+  }
+}
+@keyframes top-bottom {
+  from {
+    top: 0;
+  }
+  to {
+    top: 100vh;
+  }
+}
