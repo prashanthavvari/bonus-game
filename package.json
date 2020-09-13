@@ -1,21 +1,21 @@
 {
-	"name": "bonus",
-	"main": "server/app.js",
-	"version": "1.0.0",
-	"dependencies": {
-		"body-parser": "*",
-		"express": "*",
-		"mysql": "*",
-		"socket.io": "*"
-	},
-	"engines": {
-		"node": "12.17.x"
-	},
-	"scripts": {
-		"start": "node server/app.js",
-		"heroku-postbuild": "cd client && npm install && npm run build"
-	},
-	"description": "",
-	"author": "me",
-	"license": "ISC"
+  "name": "bonus",
+  "main": "server/app.js",
+  "version": "1.0.0",
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mysql": "*",
+    "socket.io": "*"
+  },
+  "engines": {
+    "node": "12.17.x"
+  },
+  "scripts": {
+    "start": "node server/app.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "description": "",
+  "author": "me",
+  "license": "ISC"
 }
