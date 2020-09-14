@@ -47,7 +47,7 @@ app.get('/getcards', (req, res) => {
 })
 
 //sockets
-let socketio = socket(server, {'pingInterval': 60000 * 5});
+let socketio = socket(server, {'pingInterval': 60000 * 15});
 let socketsList = [];
 socketio.sockets.on('connection', (socket)=> {
   console.log('initializing sockets');
