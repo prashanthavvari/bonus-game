@@ -12,6 +12,7 @@ class Joinroom extends React.Component {
     this.setState({[key] : e.target.value});
   }
   async joinRoom() {
+    this.setState({ disableJoin: true });
     this.props.socket.on('connect', function(){
       console.log('connected socket');
     })
@@ -44,7 +45,7 @@ class Joinroom extends React.Component {
     let joinRoomState = (<div>
       <input className="red-input" placeholder="Name" type="text" name="name" onChange={(e) => this.handleTextChange(e, 'name')}/>
       <input className="input-text red-input" type="text" name="Code" placeholder="code" onChange={(e) => this.handleTextChange(e, 'code')}/>
-      <button className="red-back-button" onClick={()=> this.joinRoom()}>Create Room</button>
+      <button className="red-back-button" disabled={this.state.disableJoin} onClick={()=> this.joinRoom()}>Join Room</button>
       </div>);
     if (this.props.players.length !== 0) {
       joinRoomState = <Playerslist startGame = {this.props.startGame} canShowStartButton={this.props.canShowStartButton}/>;
