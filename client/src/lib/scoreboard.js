@@ -12,9 +12,9 @@ class ScoreBoardComponent extends React.Component {
   }
   render() {
     if (this.state.scores!== undefined) {
-      console.log(this.state.scores);
+      // console.log(this.state.scores);
     return (
-        <div className="inline-block">
+        <div className="inline-block d-block">
         <h4>Scores</h4>
           <table border='1'>
           <thead>

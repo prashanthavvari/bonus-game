@@ -60,6 +60,10 @@ class Game {
     return table;
   }
   addCardInLobby(card, playerId) {
+    if (this.shouldResetLobbyCards) {
+      this.shouldResetLobbyCards = false;
+      this.lobbyCards = [];
+    }
     let player = this.players.find((player) => player.id === playerId);
     player.removeCard(card);
     this.lobbyCards.push({card, playerId, playerName: this.getPlayerName(playerId)});
@@ -122,7 +126,7 @@ class Game {
       this.gameFinish = true;
       //game finish
     }
-    this.lobbyCards = [];
+    this.shouldResetLobbyCards = true;
   }
   calculateScores() {
     this.players.forEach((player, i) => {

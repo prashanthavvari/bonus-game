@@ -78,6 +78,15 @@ export default function (state = initialState, action) {
           isBetPlaced: action.isBetPlaced
         }
       }
+      case 'refreshgame':
+      return {
+        ...state,
+        ...{
+          cards: action.cards,
+          nextTurn: action.nextTurn,
+          lobbyCards: action.lobbyCards
+        }
+      }
     default:
     return state;
   }

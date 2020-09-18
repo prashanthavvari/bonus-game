@@ -34,7 +34,7 @@ class Player {
     this.bets[round].win+=1;
   }
   removeCard(cardKey) {
-    let indexOfCard = this.cards.find((card, i) => { if (card.key === cardKey.key) { return i; } });
+    let indexOfCard = this.cards.findIndex((card) => card.key === cardKey.key );
     this.cards.splice(indexOfCard, 1);
   }
   setCurrentCard(card) {

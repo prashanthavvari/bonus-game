@@ -14,10 +14,10 @@ class Gamecomponent extends Component {
     this.startGame = this.startGame.bind(this);
   }
   componentDidMount() {
-    console.log(this.props, 'top');
+    // console.log(this.props, 'top');
     //whenever a new player added to the lobby
     this.props.socket.on('playerAdded', (data) => {
-      console.log(data.players, 'printing player added');
+      // console.log(data.players, 'printing player added');
       this.props.dispatch({
         type: 'playersList',
         players: data.players
@@ -29,7 +29,7 @@ class Gamecomponent extends Component {
 
     //at the start of the game
     this.props.socket.on('gamestarted', (data) => {
-      console.log(data.message);
+      // console.log(data.message);
       this.getPlayerCards();
     });
     //whenever a card is added to the lobby
@@ -43,7 +43,7 @@ class Gamecomponent extends Component {
 
     //new game emitWinnerSocket
     this.props.socket.on('roundwinner', (data) => {
-      console.log(data);
+      // console.log(data);
       this.props.dispatch({
         type: 'addRoundwinner',
         winner: data.winner
@@ -52,7 +52,7 @@ class Gamecomponent extends Component {
     });
     //reset cards after a round
     this.props.socket.on('resetplayercards', (data)=> {
-      console.log('getting player cards');
+      // console.log('getting player cards');
       this.getPlayerCards();
     });
 
@@ -121,10 +121,10 @@ class Gamecomponent extends Component {
     } else if (this.state.player === '') {
       return(
         <div className="App">
-          <div className="create-room-class">
+          <div className="create-room-class no-animation">
             <button className="create-button" onClick={()=> this.showCreaeteRoom()}>Create Game</button>
           </div>
-          <div className="join-room-class">
+          <div className="join-room-class no-animation">
             <button className="join-button" onClick={()=> this.showJoinRoom()}>Join Game</button>
           </div>
         </div>

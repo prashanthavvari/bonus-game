@@ -53,6 +53,9 @@ p {
 .App-link {
   color: #61dafb;
 }
+.position-relative {
+  position: relative !important;
+}
 .create-room-class, .join-room-class {
   display: inline-block;
   position: relative;
@@ -199,7 +202,7 @@ button img, img{
   border: 2px dashed #e45d5d;
 }
 table, td, th {
-    border: 1px solid #108b9e;
+    border: 1px solid black;
     border-collapse: collapse;
     padding: 5px;
 }
@@ -278,5 +281,67 @@ td {
   to {
     top: 100vh;
     opacity: 0;
+  }
+}
+.left-0 {
+  left: 0;
+  position: relative;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 500px) {
+  .trum-card-position {
+    position: relative;
+    right: 0;
+    left: 0;
+    margin-top: 0;
+  }
+  .place-bet-box, .cards-section {
+    margin: 0 auto;
+  }
+  .middle-align {
+    vertical-align: unset;
+  }
+  .scores {
+    margin: 0;
+    width: 100%;
+  }
+  .d-block {
+    display: block !important;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+  .rules-comp {
+    display: none;
+  }
+  .child-comp {
+    width: 100%;
+  }
+  .sidebar ul {
+    margin: 0;
+    padding: 0;
+  }
+  .lobby-player-name {
+    color: white;
+    font-size:10px;
+  }
+  .sidebar {
+    width: 90%;
+    float: none;
+    margin: 0 auto;
+  }
+  .turn-help-text {
+    font-size: 6px;
+  }
+  .no-animation {
+    animation: none;
+  }
+  button img, img, .lobby-cards {
+    width: 50px;
+  }
+  .winner-text {
+    left: 35%;
+  }
+  .flower img {
+    width: 15px;
   }
 }

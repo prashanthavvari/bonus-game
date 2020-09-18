@@ -45,6 +45,13 @@ app.get('/getcards', (req, res) => {
   let data = getPlayerCards(code, playerid);
   res.send({cards: data.cards, trump: data.trump, round: data.round, setRound: data.setRound });
 })
+app.get('/gamestatus', (req, res) => {
+  let { code, playerid } = req.query;
+  let { cards, lobbyCards, nextTurn } = getGameStatus(code, playerid);
+  console.log('printing refresh status',cards, lobbyCards, nextTurn);
+  res.header('Content-Type', "application/json");
+  res.send({ cards, lobbyCards, nextTurn});
+})
 
 //sockets
 let socketio = socket(server, {'pingInterval': 60000 * 15});
@@ -152,10 +159,12 @@ function putCardsInLobby(data) {
   gameSocket.addCardInLobby(card, player);
   let nextTurn = (Number(player) + 1)% (Number(gameSocket.players.length)+1);
   nextTurn = nextTurn === 0 ? 1 : nextTurn;
+  gameSocket.nextTurn = nextTurn;
   // console.log(gameSocket.canShowWinner());
   if (gameSocket.canShowWinner()) { //checking for last insetion of card
     let winner = gameSocket.getRoundWinner();
     nextTurn = winner.id;
+    gameSocket.nextTurn = nextTurn;
     emitWinnerSocket(winner, code);
     emitBetTable(gameSocket.getBetTable(), code, gameSocket.getRound());
     if (gameSocket.gameFinish) {
@@ -173,4 +182,10 @@ function putCardsInLobby(data) {
   return { cards: gameSocket.getLobbyCards(), nextTurn };
 }
 
-
+function getGameStatus(code, playerId) {
+  let gameSocket = getGameSocket(code);
+  let cards = gameSocket.getPlayerCards(playerId);
+  let lobbyCards = gameSocket.getLobbyCards();
+  let nextTurn = gameSocket.nextTurn || 1;
+  return { cards, lobbyCards, nextTurn };
+}

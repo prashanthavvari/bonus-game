@@ -12,15 +12,15 @@ class BetComponent extends React.Component {
   }
   render() {
     if (this.state.playerBets !== undefined && this.state.round !== undefined) {
-      console.log(this.state.round, this.props.setRound, this.props);
+      // console.log(this.state.round, this.props.setRound, this.props);
       let rounds = [];
       let i = 0;
       while (i < this.props.setRound) {
-        rounds.push(<th key={i}>'Round- ' {i}</th>);
+        rounds.push(<th key={i}>Round-  {i+1}</th>);
         i+=1;
       }
     return (
-        <div className="inline-block">
+        <div className="inline-block d-block">
         <h4>Bets</h4>
           <table border='1'>
           <thead>

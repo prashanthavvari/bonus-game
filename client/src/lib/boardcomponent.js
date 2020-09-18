@@ -7,10 +7,10 @@ import Playerslist from './playerlist';
 class Boardcomponent extends React.Component {
   constructor() {
     super();
-    this.state = { bet: 0};
+    this.state = { bet: 0 };
   }
   handleTextChange(e) {
-    this.setState({bet : e.target.value});
+    this.setState({bet : e.target.value });
   }
   async submitBet() {
     if (Number(this.state.bet) > (5 - Number(this.props.currentRound))) {
@@ -81,8 +81,8 @@ class Boardcomponent extends React.Component {
     }
   return (
       <div className="App">
-        <p className="trum-card-position">TrumpCard<br/><img src={ '/cards/' + this.props.trump.key + '.svg'} alt={this.props.trump.value}/><p id="round-winner"></p></p>
-        <Playerslist/>
+        <Playerslist />
+        <p className="trum-card-position">TrumpCard<br/><img src={ '/cards/' + this.props.trump.key + '.svg'} alt={this.props.trump.value}/><br/><i id="round-winner"></i></p>
         <div className="game-section">
           <div className="cards-section">
             {cards}

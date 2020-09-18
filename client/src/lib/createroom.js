@@ -40,7 +40,7 @@ class Createroom extends React.Component {
       isCreator: true
     });
     this.setState({code: code.roomCode});
-    console.log(this.props.isCreator, this.props);
+    // console.log(this.props.isCreator, this.props);
   }
   render() {
     let createRoomState = (<div className="top-45">
@@ -53,10 +53,10 @@ class Createroom extends React.Component {
     let code = this.state.code ? <p>Use this code to invite: <span className="red">{this.state.code}</span></p>: '';
     return (
       <div className="App">
-        <div className="create-room-class indigo">
+        <div className="create-room-class rules-comp indigo">
           <RulesComponent/>
         </div>
-        <div className="join-room-class indigo green">
+        <div className="join-room-class no-animation child-comp indigo green">
           {createRoomState}
           {code}
         </div>

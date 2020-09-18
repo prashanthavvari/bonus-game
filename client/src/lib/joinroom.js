@@ -52,10 +52,10 @@ class Joinroom extends React.Component {
     }
   return (
       <div className="App">
-        <div className="create-room-class orange">
+        <div className="create-room-class rules-comp orange">
           <RulesComponent/>
         </div>
-        <div className="join-room-class indigo red">
+        <div className="join-room-class no-animation child-comp indigo red">
           {joinRoomState}
         </div>
       </div>
