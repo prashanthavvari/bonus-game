@@ -48,7 +48,7 @@ app.get('/getcards', (req, res) => {
 app.get('/gamestatus', (req, res) => {
   let { code, playerid } = req.query;
   let { cards, lobbyCards, nextTurn } = getGameStatus(code, playerid);
-  console.log('printing refresh status',cards, lobbyCards, nextTurn);
+  // console.log('printing refresh status',cards, lobbyCards, nextTurn);
   res.header('Content-Type', "application/json");
   res.send({ cards, lobbyCards, nextTurn});
 })

@@ -12,7 +12,7 @@ class Lobbycards extends React.Component {
     <div className="red p-10">Cards in Lobby</div>
     {this.props.lobbyCards.map((item, i) =>
       <div className="lobby-cards" key={i}>
-        <div>
+        <div className="lobby-player-name">
           {item.playerName}:
         </div>
         <img src={'/cards/' + item.card.key + '.svg'} alt={item.card.value}/>

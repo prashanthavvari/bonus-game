@@ -21,6 +21,7 @@ h4{
 }
 .sidebar ul {
   margin-left: 20px;
+  max-width: 300px;
 }
 li {
   list-style: none;
@@ -288,6 +289,10 @@ td {
   position: relative;
   margin-bottom: 30px;
 }
+.lobby-player-name {
+  color: white;
+  overflow-x: scroll;
+}
 @media screen and (max-width: 500px) {
   .trum-card-position {
     position: relative;
@@ -321,7 +326,6 @@ td {
     padding: 0;
   }
   .lobby-player-name {
-    color: white;
     font-size:10px;
   }
   .sidebar {

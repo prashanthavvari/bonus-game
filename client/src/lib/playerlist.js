@@ -29,7 +29,7 @@ class Playerlist extends React.Component {
   render() {
     if (this.props.players && this.props.players.length !== 0) {
       let startButton = this.props.canShowStartButton ? <button className="start-button" onClick={()=>this.props.startGame()}>Start Game</button> : '';
-      let refreshButton = (this.props.canShowStartButton || this.props.cards.length === 0) ? '' : <button className="start-button left-0" onClick={() => this.refreshGame()}>Refresh Game</button>;
+      let refreshButton = this.props.trump === '' ? '' : <button className="start-button left-0" onClick={() => this.refreshGame()}>Refresh Game</button>;
       return (
         <div className="sidebar">
           <ul>
