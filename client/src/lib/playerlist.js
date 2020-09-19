@@ -24,6 +24,9 @@ class Playerlist extends React.Component {
       lobbyCards: gameStatus.lobbyCards,
       nextTurn: gameStatus.nextTurn,
       cards: gameStatus.cards
+    });
+    this.props.socket.emit('room', {
+      code: this.props.code
     })
   }
   render() {
@@ -41,7 +44,7 @@ class Playerlist extends React.Component {
         </div>
       )
     } else {
-      return <p>Players List</p>
+      return <button className="start-button left-0" onClick={() => this.refreshGame()}>Refresh Game</button>;
     }
   }
 }
