@@ -12,8 +12,8 @@
     "node": "12.17.x"
   },
   "scripts": {
-    "build": "cd client && npm install && npm run build"
-    "start": "node server/app.js"
+    "build": "cd client && npm install && npm run build",
+    "start": "node server/app.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "description": "",
