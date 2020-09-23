@@ -189,3 +189,4 @@ function getGameStatus(code, playerId) {
   let nextTurn = gameSocket.nextTurn || 1;
   return { cards, lobbyCards, nextTurn };
 }
+//App js should be present
