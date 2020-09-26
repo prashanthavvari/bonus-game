@@ -232,15 +232,33 @@ td {
   left: 45%;
 }
 .flower {
-  height: 5px;
-  width: 5px;
   padding: 5px;
   display: inline-block;
   position: relative;
-  border-radius: 50%;
-  margin: 0 5%;
+  margin: 0 2%;
   transition: all 2s ease;
-  animation: top-bottom 5s infinite ease-in;
+}
+.bulb {
+  width: 6px;
+  height: 5px;
+  background-color: #ff6666;
+  margin: 0 auto;
+}
+.flower:nth-child(2n) .light {
+  width: 10px;
+  text-align: left;
+  border-left: 36px solid transparent;
+  border-bottom: 30px solid #ff2d2d;
+  border-right: 36px solid transparent;
+  animation: red-green 1s infinite ease-in;
+}
+.flower:nth-child(2n -1 ) .light {
+  width: 10px;
+  text-align: left;
+  border-left: 36px solid transparent;
+  border-bottom: 30px solid #3aa8ad;
+  border-right: 36px solid transparent;
+  animation: green-red 1s infinite ease-in;
 }
 @keyframes App-logo-spin {
   from {
@@ -282,6 +300,22 @@ td {
   to {
     top: 100vh;
     opacity: 0;
+  }
+}
+@keyframes red-green {
+  from {
+    border-bottom-color: #ff2d2d;
+  }
+  to {
+    border-bottom-color: #3aa8ad;
+  }
+}
+@keyframes green-red {
+  from {
+    border-bottom-color: #3aa8ad;
+  }
+  to {
+    border-bottom-color: #ff2d2d;
   }
 }
 .left-0 {

@@ -12,11 +12,16 @@ class Game {
     this.lobbyCards = [];
     this.roundWinner;
     this.cardReset = false;
+    this.isGameStarted = false;
   }
   addPlayer(name) {
     let id = this.players.length + 1;
     let player = new Player(name, id);
     this.players.push(player);
+  }
+  getPlayers() {
+    let players = this.players.map((player) =>  { return{ name: player.name, id: player.id }} );
+    return players;
   }
   distributeCards() {
     this.cardReset = false;
@@ -88,6 +93,7 @@ class Game {
     }
   }
   startGame() {
+    this.isGameStarted = true;
     this.distributeCards();
   }
   evaluateRound() {

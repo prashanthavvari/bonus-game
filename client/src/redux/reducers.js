@@ -84,7 +84,8 @@ export default function (state = initialState, action) {
         ...{
           cards: action.cards,
           nextTurn: action.nextTurn,
-          lobbyCards: action.lobbyCards
+          lobbyCards: action.lobbyCards,
+          players: action.players
         }
       }
     default:

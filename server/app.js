@@ -26,8 +26,12 @@ app.post('/joinroom', function(req, res) {
   let { name, code } = req.body;
   res.header("Content-Type", "application/json");
   let id = joinRoom(name, code);
-  emitPlayerAddedSocket(code, id);
-  res.send({playerId: id});
+  if (id === -1) {
+    res.send({playerId: -1});
+  } else {
+    emitPlayerAddedSocket(code, id);
+    res.send({playerId: id});
+  }
 });
 app.get('/', function (req, res) {
   res.header("Content-Type", "text/html");
@@ -47,10 +51,10 @@ app.get('/getcards', (req, res) => {
 })
 app.get('/gamestatus', (req, res) => {
   let { code, playerid } = req.query;
-  let { cards, lobbyCards, nextTurn } = getGameStatus(code, playerid);
+  let { cards, lobbyCards, nextTurn, players } = getGameStatus(code, playerid);
   // console.log('printing refresh status',cards, lobbyCards, nextTurn);
   res.header('Content-Type', "application/json");
-  res.send({ cards, lobbyCards, nextTurn});
+  res.send({ cards, lobbyCards, nextTurn, players});
 })
 
 //sockets
@@ -133,6 +137,9 @@ function createSocketRoom(code, name) {
 }
 function joinRoom(name, code, isOrigin = false) {
   let gameSocket = getGameSocket(code);
+  if (gameSocket.isGameStarted) {
+    return -1;
+  }
   gameSocket.addPlayer(name);
   return gameSocket.players[gameSocket.players.length - 1].id;
 }
@@ -187,6 +194,7 @@ function getGameStatus(code, playerId) {
   let cards = gameSocket.getPlayerCards(playerId);
   let lobbyCards = gameSocket.getLobbyCards();
   let nextTurn = gameSocket.nextTurn || 1;
-  return { cards, lobbyCards, nextTurn };
+  let players = gameSocket.getPlayers();
+  return { cards, lobbyCards, nextTurn, players };
 }
 //App js should be present

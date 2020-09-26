@@ -23,7 +23,8 @@ class Playerlist extends React.Component {
       type: 'refreshgame',
       lobbyCards: gameStatus.lobbyCards,
       nextTurn: gameStatus.nextTurn,
-      cards: gameStatus.cards
+      cards: gameStatus.cards,
+      players: gameStatus.players
     });
     this.props.socket.emit('room', {
       code: this.props.code

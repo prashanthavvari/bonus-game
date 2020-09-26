@@ -13,8 +13,10 @@ class Boardcomponent extends React.Component {
     this.setState({bet : e.target.value });
   }
   async submitBet() {
-    if (Number(this.state.bet) > (5 - Number(this.props.currentRound))) {
+    if (Number(this.state.bet) > (5 - Number(this.props.currentRound)) || String(this.state).length > 1 || isNaN(this.state.bet)) {
       alert('invalid bet chosse less than' + (5 - Number(this.props.currentRound)));
+    } else if(Number(this.state.bet) < 0) {
+      alert('Please choose a bet > 0');
     } else {
       this.props.dispatch({
         type: 'betPlaced',

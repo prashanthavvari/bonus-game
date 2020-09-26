@@ -96,7 +96,7 @@ class Gamecomponent extends Component {
       let flowers = [];
       let i = 1;
       while (i !== 10) {
-        flowers.push(<div className="flower"><img src="/ribbon.png" alt="ribbon"/></div>);
+        flowers.push(<div className="flower" key={i}><div className="bulb"/><div className="light"/></div>);
         i+=1;
       }
       return (

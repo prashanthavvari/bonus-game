@@ -31,15 +31,19 @@ class Joinroom extends React.Component {
         })
     });
     let response = await message.json();
-    this.props.dispatch({
-      type: 'roomcode',
-      code: this.state.code
-    })
-    this.props.dispatch({
-      type: 'addPlayer',
-      currentPlayerId: response.playerId,
-      isCreator: false
-    })
+    if (response.playerId === -1) {
+      alert('Game already started');
+    } else {
+      this.props.dispatch({
+        type: 'roomcode',
+        code: this.state.code
+      })
+      this.props.dispatch({
+        type: 'addPlayer',
+        currentPlayerId: response.playerId,
+        isCreator: false
+      });
+    }
   }
   render() {
     let joinRoomState = (<div>
